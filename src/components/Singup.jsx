@@ -47,11 +47,39 @@ const Singup = () => {
             Sign In
           </Link>
         </p>
-        {err  && <p className="text-red-600 mt-8 text-center">{err}</p>}
-      
-      <form onSubmit={handleSubmit(create)}></form>
-      
-      
+        {err && <p className="text-red-600 mt-8 text-center">{err}</p>}
+
+        <form onSubmit={handleSubmit(create)}>
+          <div className="space-y-5">
+            <Input
+              label="Full Name: "
+              placeholder="Enter your name"
+              {...register("name", { required: true })}
+            />
+            <Input
+              label="Email: "
+              type="email"
+              placeholder="Enter your Email"
+              {...register("email", {
+                required: true,
+                validate: {
+                  matchPatern: (value) =>
+                    /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                    "Email address must be a valid address",
+                },
+              })}
+            />
+             <Input 
+              label="Password: "
+              type="password"
+              placeholder="Enter your Password"
+              {...register("password"), {
+                required : true,
+              }}
+            />  
+             <Button type="submit" className="w-full">Create Account</Button>
+          </div>
+        </form>
       </div>
     </div>
   );
