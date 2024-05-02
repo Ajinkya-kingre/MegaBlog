@@ -42,7 +42,7 @@ export class AuthService {
     }
   }
 
-  async gerCurrUser() {
+  async getCurrUser() {
     try {
        return await this.account.get();
     } catch (error) {
