@@ -17,4 +17,4 @@ const Protected = ({ children, authentication = true }) => {
   return loader ? <div>Loading...</div> : <div>{children}</div>;
 };
 
-export default AuthLayout;
+export default Protected;
