@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {Logo} from "../index.js";
+import Logo from "../Logo";
 
 const Footer = () => {
   return (
@@ -138,6 +138,6 @@ const Footer = () => {
       </div>
     </section>
   );
-};
+}
 
 export default Footer;

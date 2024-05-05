@@ -6,7 +6,7 @@ import LogoutBtn from "./Header/LogoutBtn.jsx";
 import Button from './Button.jsx';
 import Input from "./Input.jsx";
 import RTE from "./RTE.jsx";
-import Select from "./Select.jsx";
+import Select from "./Select.jsx"
 import AuthLayout from "./AuthLayout.jsx"
 import PostForm from "./post-form/PostForm.jsx"
 import Login from "./Login.jsx"

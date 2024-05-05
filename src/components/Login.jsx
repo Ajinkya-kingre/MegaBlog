@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Button, Input, Logo } from "./index";
 import { login as authLogin } from "../store/authSlice";
+import { Button, Input, Logo } from "./index";
 import { useDispatch } from "react-redux";
 import authService from "../appwrite/auth";
 import { useForm } from "react-hook-form";
 
-const Login = () => {
+function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
@@ -17,16 +17,15 @@ const Login = () => {
     try {
       const session = await authService.login(data);
       if (session) {
-        const userData = await authService.gerCurrUser();
-        if (userData) {
-          dispatch(authLogin(userData));
-          navigate("/");
-        }
+        const userData = await authService.getCurrUser();
+        if (userData) dispatch(authLogin(userData));
+        navigate("/");
       }
     } catch (error) {
       setError(error.message);
     }
   };
+
   return (
     <div className="flex items-center justify-center w-full">
       <div
@@ -54,8 +53,8 @@ const Login = () => {
           <div className="space-y-5">
             <Input
               label="Email: "
+              placeholder="Enter your email"
               type="email"
-              placeholder="Enter your Email"
               {...register("email", {
                 required: true,
                 validate: {
@@ -68,7 +67,7 @@ const Login = () => {
             <Input
               label="Password: "
               type="password"
-              placeholder="Enter your Password"
+              placeholder="Enter your password"
               {...register("password", {
                 required: true,
               })}
@@ -81,6 +80,6 @@ const Login = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Login;
