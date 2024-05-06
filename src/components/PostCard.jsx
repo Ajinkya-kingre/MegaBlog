@@ -1,7 +1,7 @@
-import React from "react";
 import appwriteService from "../appwrite/configMain";
 import { Link } from "react-router-dom";
-const PostCard = ({ $id, title, featuredImage }) => {
+
+function PostCard({ $id, title, featuredImage }) {
   return (
     <Link to={`/post/${$id}`}>
       <div className="w-full bg-gray-100 rounded-xl p-4">
@@ -16,6 +16,6 @@ const PostCard = ({ $id, title, featuredImage }) => {
       </div>
     </Link>
   );
-};
+}
 
 export default PostCard;

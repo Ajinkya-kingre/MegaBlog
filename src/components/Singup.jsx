@@ -17,11 +17,11 @@ const Singup = () => {
     try {
       const userData = await authService.createAccount(data);
       if (userData) {
-        const userData = await authService.getCurrUser(userData);
+        const userData = await authService.getCurrUser();
         if (userData) dispatch(authLogin(userData));
         navigate("/");
       }
-    } catch (error) {
+    } catch (err) {
       setErr(err.message);
     }
   };
